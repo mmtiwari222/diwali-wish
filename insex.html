@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Happy Diwali — IT Team</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 20%, #1e164a, #090a1f 70%);
+      overflow: hidden;
+      font-family: "Poppins", sans-serif;
+      color: #fff;
+      position: relative;
+    }
+
+    .message {
+      text-align: center;
+      opacity: 0;
+      transform: scale(0.8);
+      animation: fadeInZoom 2.5s ease forwards;
+      z-index: 2;
+    }
+
+    @keyframes fadeInZoom {
+      0% {
+        opacity: 0;
+        transform: scale(0.6);
+      }
+      70% {
+        opacity: 1;
+        transform: scale(1.08);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ffd54f;
+      text-shadow: 0 0 25px rgba(255, 215, 0, 0.6),
+                   0 0 60px rgba(255, 153, 0, 0.3);
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: 1.3rem;
+      color: #eaeaea;
+      opacity: 0;
+      animation: fadeInText 2s ease 1.2s forwards;
+    }
+
+    @keyframes fadeInText {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .glow-ring {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.25), transparent 70%);
+      filter: blur(40px);
+      z-index: 1;
+      animation: pulse 4s infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.9); opacity: 0.6; }
+      100% { transform: scale(1.2); opacity: 1; }
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ffd54f;
+      box-shadow: 0 0 12px #ffcc33;
+      animation: sparkle 4s linear infinite;
+    }
+
+    @keyframes sparkle {
+      0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    .diya {
+      position: absolute;
+      bottom: 40px;
+      width: 80px;
+      height: 50px;
+      background: #512d00;
+      border-radius: 0 0 40px 40px;
+      box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
+      left: 50%;
+      transform: translateX(-50%);
+      overflow: visible;
+    }
+
+    .flame {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 35px;
+      background: radial-gradient(ellipse at center, #ffcc33 0%, #ff6600 60%, transparent 100%);
+      border-radius: 50%;
+      animation: flicker 0.3s infinite alternate;
+      filter: blur(1px);
+    }
+
+    @keyframes flicker {
+      0% { transform: translateX(-50%) scale(1) rotate(-3deg); opacity: 0.9; }
+      100% { transform: translateX(-50%) scale(1.1) rotate(3deg); opacity: 1; }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.9rem;
+      color: #bbb;
+      opacity: 0.9;
+      letter-spacing: 0.5px;
+      text-align: center;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-ring"></div>
+
+  <div class="message">
+    <h1>🎇 Happy Diwali! 🎆</h1>
+    <p>Warm wishes from the <strong>IT Team – Application Support</strong></p>
+  </div>
+
+  <div class="diya">
+    <div class="flame"></div>
+  </div>
+
+  <footer>Made by <strong>Madanmohan Tiwari</strong> ✨</footer>
+
+  <script>
+    // Add sparkles (they loop, message stays)
+    for (let i = 0; i < 25; i++) {
+      const s = document.createElement('div');
+      s.classList.add('sparkle');
+      s.style.left = Math.random() * 100 + 'vw';
+      s.style.animationDuration = 2 + Math.random() * 3 + 's';
+      s.style.animationDelay = Math.random() * 2 + 's';
+      document.body.appendChild(s);
+    }
+  </script>
+</body>
+</html>
